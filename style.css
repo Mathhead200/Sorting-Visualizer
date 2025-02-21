@@ -1,0 +1,43 @@
+html, body {
+	margin: 0;
+	background-color: darkslategray;
+	color: lemonchiffon;
+	font: 12pt sans-serif;
+	text-align: center;
+}
+
+form {
+	padding: 1rem;
+}
+
+form fieldset {
+	margin: 0;
+	padding: 0;
+	border: 0px hidden transparent;
+	display: flex;
+	justify-content: center;
+}
+
+form fieldset legend {
+	display: inline;
+	font-weight: bold;
+}
+
+form fieldset > label {
+	padding: 0;
+	margin: 1rem;
+}
+
+form #algorithm {
+	font-size: 2rem;
+	display: block;
+	margin: auto;
+}
+
+main svg {
+	width: min(80vw, calc(80vh * 16/9));
+	height: min(calc(80vw * 9/16), 80vh);
+	display: block;
+	margin: auto;
+	background-color: black;
+}
