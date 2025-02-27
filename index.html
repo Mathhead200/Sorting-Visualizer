@@ -8,12 +8,13 @@
 	<script>
 		window.sorting_visualizer = { sorts: {} };
 	</script>
-	<script src="bubble-sort.js"></script>
+	<script src="sort.js" defer></script>
+	<script src="bubble-sort.js" defer></script>
 	<script src="visualizer.js" defer></script>
 </head>
 <body>
 	<main>
-		<form action="" method="get">
+		<form id="form" action="" method="get">
 			<select id="algorithm">
 				<option value=""></option>
 				<option value="bubble"> Bubble Sort </option>
@@ -25,10 +26,13 @@
 			<fieldset id="settings">
 				<label> Number of element: <input type="number" id="n" value="10" min="0"> </label>
 			</fieldset>
+			<input type="submit" value="Done." disabled>
 		</form>
-		<svg xmlns="http://www.w3.org/2000/svg">
+		<svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
 
 		</svg>
+		<aside> Running time: <output id="time" form="form">0</output> </aside>
+		<aside id="status"></aside>
 	</main>
 </body>
 </html>

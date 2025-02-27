@@ -16,6 +16,7 @@ form fieldset {
 	border: 0px hidden transparent;
 	display: flex;
 	justify-content: center;
+	flex-wrap: wrap;
 }
 
 form fieldset legend {
@@ -40,4 +41,38 @@ main svg {
 	display: block;
 	margin: auto;
 	background-color: black;
+}
+
+main svg #visuals {
+	fill: white;
+}
+
+main svg #visuals * {
+	transition: x 0.5s, fill 0.5s;
+}
+
+main svg #visuals .done {
+	fill: green;
+}
+
+main svg #visuals .aux {
+	fill: yellow;
+}
+
+main svg #visuals .focus {
+	fill: red;
+}
+
+aside {
+	margin: 1rem;
+}
+
+.yes::after {
+	content: "✓";
+	color: greenyellow;
+}
+
+.no::after {
+	content: "✗";
+	color: red;
 }
