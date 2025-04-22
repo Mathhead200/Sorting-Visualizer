@@ -26,18 +26,23 @@ form fieldset legend {
 
 form fieldset > label {
 	padding: 0;
-	margin: 1rem;
+	margin: 0.25rem 1rem;
 }
 
 form #algorithm {
-	font-size: 2rem;
+	font-size: 1.5rem;
 	display: block;
-	margin: auto;
+	margin: 0.25em auto;
+}
+
+form [type=submit], form [type=reset], form [type=button] {
+	margin-block: 0.25rem 1rem;
+	width: 8em;
 }
 
 main svg {
-	width: min(80vw, calc(80vh * 16/9));
-	height: min(calc(80vw * 9/16), 80vh);
+	width: min(65vw, calc(65vh * 16/9));
+	height: min(calc(65vw * 9/16), 65vh);
 	display: block;
 	margin: auto;
 	background-color: black;

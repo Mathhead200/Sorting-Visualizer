@@ -6,35 +6,26 @@ let settingsElements = [];
 // DOM
 const svg = document.querySelector("main svg");
 const form = document.querySelector("main form");
+const algorithmSelect = form.querySelector("#algorithm");
 const settingsContainer = form.querySelector("#settings");
+const reset = form.querySelector("[type=reset]");
 const submit = form.querySelector("[type=submit]");
 
-form.addEventListener("submit", event => {
-	event.preventDefault();
-	if (sort) {
-		let nextStep = sort.step();
-		if (nextStep) {
-			submit.value = `${nextStep} ▶`;
-		} else {
-			submit.value = "Done.";
-			submit.disabled = true;
-		}
-	}
-});
-
-form.querySelector("#algorithm").addEventListener("change", event => {
+const setSort = (name) => {
 	if (sort) {
 		sort.unload();	
 
 		svg.innerHTML = ""; // clear svg
 
 		// clear sort specific settings
-		for (let ele in settingsElements)
+		for (let ele of settingsElements)
 			ele.remove();
 		settingsElements = [];
 	}
 
-	sort = window.sorting_visualizer.sorts[event.currentTarget.value];
+	sort = sorts[name];
+	if (!sort)
+		return;
 
 	// add sort specific settings
 	if (sort.settings)
@@ -55,4 +46,41 @@ form.querySelector("#algorithm").addEventListener("change", event => {
 		submit.value = "Done.";
 		submit.disabled = true;
 	}
+
+	reset.disabled = false;
+
+	time.innerText = "0";
+	status.innerText = "";
+};
+
+form.addEventListener("reset", event => {
+	event.preventDefault();
+	setSort(algorithmSelect.value);
+})
+
+form.querySelector("#algorithm").addEventListener("change", event => {
+	setSort(event.currentTarget.value);
 });
+
+const step = () => {
+	let nextStep = sort.step();
+	if (nextStep) {
+		submit.value = `${nextStep} ▶`;
+	} else {
+		submit.value = "Done.";
+		submit.disabled = true;
+	}
+};
+
+form.addEventListener("submit", event => {
+	event.preventDefault();
+	step();
+});
+
+// document.querySelector("body").addEventListener("keydown", event => {
+// 	if (event.key === " ") {
+// 		event.preventDefault();
+// 		if (!submit.disabled)
+// 			step();
+// 	}
+// });

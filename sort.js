@@ -70,7 +70,7 @@ class Sort {
 		this.time = 0;  // reset time
 
 		// fill array with random values
-		this.value = new Array(n);
+		this.array = new Array(n);
 		for (let i = 0; i < n; i++) {
 			const value = Math.ceil(Math.random() * range + a);
 			

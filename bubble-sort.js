@@ -21,8 +21,10 @@ class BubbleSort extends Sort {
 
 	/** @Overload */
 	update() {
-		const n = +count.value;
 		super.update();
+		const n = this.array.length;
+		
+		this.pass = 0;
 		this.curr = n - 1;
 		this.array[this.curr - 1]?.visual.classList.add("aux");
 		return n > 0 ? "Compare" : null;
