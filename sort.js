@@ -30,6 +30,9 @@ class Sort {
 	/** @private */
 	svg = null;
 
+	/** @private */
+	g = null;  // <g> group SVG element
+
 	/**
 	 * @protcted
 	 * Represents the array to be sorted.
@@ -41,6 +44,7 @@ class Sort {
 	 */
 	array = [];
 
+	/** @private */
 	time = 0;
 
 	/**
@@ -58,6 +62,7 @@ class Sort {
 	/**
 	 * @protected
 	 * Called when a relevant input element is updated.
+	 * @return {String} for next step, or <code>null</code>
 	 */
 	update() {
 		const n = +count.value;
@@ -113,7 +118,11 @@ class Sort {
 		count.removeEventListener("change", this.updateCount);
 	}
 
-	/** @Abstract */
+	/**
+	 * @abstract
+	 * @public
+	 * @return {String} for next step, or <code>null</code>
+	 */
 	step() { console.error("Unimplemented"); }
 
 	/** @protected */

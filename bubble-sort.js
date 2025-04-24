@@ -1,3 +1,5 @@
+(function() {
+
 // IMPORT
 const { SORT } = window.sorting_visualizer;
 
@@ -6,7 +8,7 @@ class BubbleSort extends Sort {
 	_curr = null;  // position of current pointer
 	queueSwap = false;
 
-		/** @Private */
+	/** @Private */
 	get curr() {
 		return this._curr;
 	}
@@ -77,3 +79,5 @@ class BubbleSort extends Sort {
 
 // add this sorting algorithm to the list of options
 window.sorting_visualizer.sorts.bubble = new BubbleSort();
+
+})(); // End IIFE

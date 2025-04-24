@@ -56,16 +56,16 @@ main svg #visuals * {
 	transition: x 0.5s, fill 0.5s;
 }
 
-main svg #visuals .done {
-	fill: green;
-}
-
-main svg #visuals .aux {
+main svg #visuals .focus {
 	fill: yellow;
 }
 
-main svg #visuals .focus {
-	fill: red;
+main svg #visuals .aux {
+	fill: orange;
+}
+
+main svg #visuals .done {
+	fill: lime;
 }
 
 aside {
